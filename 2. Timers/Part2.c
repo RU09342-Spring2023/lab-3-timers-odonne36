@@ -60,8 +60,8 @@ __interrupt void Port_2(void)
     if (t == 50000)
         t = 25000;
     else if (t==25000)
-        t= 10000;
-    else if (t== 10000)
+        t= 5000;
+    else if (t== 5000)
         t=50000;
     // @TODO Remember that when you service the GPIO Interrupt, you need to set the interrupt flag to 0.
         P2IFG &= ~BIT3;
@@ -75,7 +75,7 @@ __interrupt void Port_2(void)
 #pragma vector = TIMER1_B0_VECTOR
 __interrupt void Timer1_B0_ISR(void)
 {
-    // @TODO You can toggle the LED Pin in this routine and if adjust your count in CCR0.
+
     P1OUT ^= BIT0;
     TB1CCR0 += t;
 }
