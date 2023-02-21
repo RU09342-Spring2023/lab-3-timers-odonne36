@@ -27,9 +27,13 @@ P1OUT &= ~BIT0;
         P2IES &= ~BIT3;                         // P2.3 Low --> High edge
         P2IE |= BIT3;
         P2IFG &= ~BIT3;
-     while (1) {
+
 
         TB1CCTL0 = CCIE;
+        TB1EX0 = 0x011;
+     while (1) {
+
+
         TB1CCR0 = t;
         TB1CTL = TBSSEL_1 | MC_2;
 
